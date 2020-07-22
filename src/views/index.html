@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Rodrigo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <section>
+            <aside>
+                <div  id="show" class="container-dropdown hide">
+                <select id="select-custums" onselectionchange="()=>{console.log('teste')}"> 
+                        <option value="" selected>Selecione uma opção</option>
+                        <option value="A">Opção A</option>
+                        <option value="">Opção B</option>
+                    </select>
+                    <button type="submit" onclick="offDropDown()">close</button>                    
+                </div>
+                <div class="option-button">
+                    <button type="submit" onclick="onDropDown()">Option</button>
+                </div>
+        
+                <div class="quantity">
+                    <p>Quantity</p>
+                    <input type="text" placeholder="Type here" onchange="render()">
+                </div>
+            </aside>
+
+            <article>
+                <div class="container">
+                    <div id="item-container">
+                        
+                    </div>
+                    
+                    <div class="prev-next">
+                        <a class="prev"  onclick="previousPage()" data-value="1">&#10094;</a>
+                        <a class="next"  onclick="nextPage()" data-value="1">&#10095;</a>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        function onDropDown() {
+           document.getElementById("show").style.display = "block";
+           }
+           function offDropDown() {
+           document.getElementById("show").style.display = "none";
+       }
+       </script>
+</body>
+</html>
