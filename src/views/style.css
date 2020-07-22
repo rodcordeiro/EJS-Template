@@ -83,7 +83,7 @@ aside .option-button, .quantity {
 } 
 
 aside .container-dropdown {
-    position: fixed;
+    position: absolute;
 
     background-color: rgb(223, 217, 217);
     
@@ -94,7 +94,7 @@ aside .container-dropdown {
 
     border: 1px solid #808080;
     display: none;
-    transition: 5s;
+    transition: display 1s ease-in-out;
 }
 
 aside .container-dropdown button {

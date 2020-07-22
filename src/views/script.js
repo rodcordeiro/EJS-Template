@@ -35,7 +35,6 @@ function render(number){
     if (number){
         x = number;
     } else {
-        if (!items) return;
         x = 1;    
     }
     let i = document.querySelector("input[type=text]").value
@@ -71,11 +70,11 @@ selectLetter.addEventListener("change",function(){
     let qtd = document.querySelector("input[type=text]")
     if(!qtd.value) warn(qtd)
     letter = filtros[indice].value
-    console.log(letter)
-    render
+    render()
 })
 
 function warn(element){
     let classe = element.classList
-    if(!classe.contains(warn)) classe.add('warn');
+    console.log(element,classe)
+    if(!classe.contains("warn")) classe.add('warn');
 }
