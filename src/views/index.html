@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="container">
         <section>
             <aside>
                 <div  id="show" class="container-dropdown hide">
-                <select id="select-custums" onselectionchange="()=>{console.log('teste')}"> 
-                        <option value="" selected>Selecione uma opção</option>
+                <select id="selectLetter"> 
+                        <option value="A" selected>Selecione uma opção</option>
                         <option value="A">Opção A</option>
-                        <option value="">Opção B</option>
+                        <option value="B">Opção B</option>
                     </select>
                     <button type="submit" onclick="offDropDown()">close</button>                    
                 </div>
@@ -24,7 +24,7 @@
         
                 <div class="quantity">
                     <p>Quantity</p>
-                    <input type="text" placeholder="Type here" onchange="render()">
+                    <input type="text" placeholder="Type here" onchange="render(1)">
                 </div>
             </aside>
 
@@ -46,10 +46,21 @@
     <script>
         function onDropDown() {
            document.getElementById("show").style.display = "block";
+           setTimeout(()=>{
+            document.querySelector(".container").classList.add('closer')
+           },1500);
            }
+        
            function offDropDown() {
            document.getElementById("show").style.display = "none";
+           document.querySelector(".container").classList.remove('closer')
        }
+       container.addEventListener('click',(e)=>{
+           let classList = document.querySelector(".container").classList
+           let obj2 = document.getElementById("show")
+           if (classList.contains('closer') && e.target !== obj2) offDropDown()
+        })
+
        </script>
 </body>
 </html>

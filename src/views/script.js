@@ -1,9 +1,11 @@
-let items = 3
+let items = false
 let letter = "A"
 
 function renderItem(letter,num){
     let item = document.createElement('div')
     item.setAttribute("class","item")
+    item.setAttribute("id",num)
+    
     let group = document.createElement('div')
     group.setAttribute("class","group")
     
@@ -28,43 +30,52 @@ function renderItem(letter,num){
 }
 
 function render(number){
+    console.log("rendering")
     let x;
     if (number){
         x = number;
-        console.log(number)
     } else {
-        x = 1;
-        console.log("number")
-    
+        if (!items) return;
+        x = 1;    
     }
-    let i = document.querySelector("input[type=text]").value || '3'
+    let i = document.querySelector("input[type=text]").value
+    document.querySelector("input[type=text]").classList.remove('warn')
     let container = document.querySelector("#item-container");
     container.innerHTML = ''
     let j = 1
     while (x <= i && j <= 3){
-        console.log(renderItem(letter,x))
         container.appendChild(renderItem(letter,x))        
         j++;
         x++;
     }
-    if(x < i){
-        let next = document.querySelector('.next')
-        next.setAttribute("data-value",x + 1)
-    }
-    if(x > j){
-        let prev = document.querySelector('.prev')
-        prev.setAttribute("data-value",x - 3)
-    }
 }
 function nextPage(){
-    let button = parseInt(document.querySelector('.next').getAttribute('data-value'))
-    console.log(button)
-    render(button)
+    let container = document.querySelector('#item-container')
+    let last = container.lastElementChild
+    let i = document.querySelector("input[type=text]").value
+    let value = parseInt(last.getAttribute('id'))
+    if (value == i) return;
+    render(value + 1)
 }
 function previousPage(){
-    let button = parseInt(document.querySelector('.prev').getAttribute('data-value'))
-    console.log(button)
-    render(button)
+    let container = document.querySelector('#item-container')
+    let last = container.firstElementChild
+    let value = parseInt(last.getAttribute('id'))
+    if (value == 1) return;
+    render(value - 3)
 }
 
-render()
+selectLetter.addEventListener("change",function(){
+    var filtros = document.getElementById("selectLetter");
+    var indice = this.selectedIndex; 
+    let qtd = document.querySelector("input[type=text]")
+    if(!qtd.value) warn(qtd)
+    letter = filtros[indice].value
+    console.log(letter)
+    render
+})
+
+function warn(element){
+    let classe = element.classList
+    if(!classe.contains(warn)) classe.add('warn');
+}
