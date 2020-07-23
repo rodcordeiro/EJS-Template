@@ -1,4 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
+:root{
+    --aside-bg: #f4f4f4;
+    --aside-box: #015c92;
+    --options-bg:#ccc;
+    --text: #181818;
+    --background: #f4f4f4;
+    --items:#ccc;
+    --items-border:#015c92;
+    --item-number-bg:#015c92;
+    --item-number-text:#fff;
+    --item-text:#181818;
+    --font: 'Roboto', sans-serif;
+}
 
 * {
     margin: 0;
@@ -12,21 +25,21 @@ section {
 }
 
 aside {
-    background-color: rgb(223, 217, 217);
-    border: 1px solid #808080;
+    background-color: var(--aside-bg);
+    border: 1px solid #0003;
     height: 100vh;
     width: 300px;
 }
 
 article {
-    background-color: rgb(223, 217, 217);
+    background-color: var(--background);
     border: 1px solid #808080;
     height: 100vh;
     width: 1066px;
 }
 
 aside .option-button, .quantity {
-    background-color: #808080;
+    background-color: var(--aside-box);
     border-top: 1px solid #808080;
     border-bottom: 1px solid #808080;
     height: 100px;
@@ -45,7 +58,7 @@ aside .option-button, .quantity {
     
     font-size: 17px;
     font-weight: 400;
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--font);
 
     border: none;
     border-radius: 6px;
@@ -66,7 +79,8 @@ aside .option-button, .quantity {
 
     font-size: 17px;
     font-weight: 400;
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--font);
+
 }
 .quantity input {
     display: flex;
@@ -80,6 +94,7 @@ aside .option-button, .quantity {
 
     outline: none;
     cursor: pointer;
+    padding: 5px 10px;
 } 
 
 aside .container-dropdown {
@@ -138,7 +153,7 @@ aside .container-dropdown  select {
   }
 
 article .item {
-    background-color: #808080;
+    background-color: var(--items);
     border: 1px solid #808080;
     width: 90%;
     height: 100px;
@@ -160,7 +175,7 @@ article .item .group {
 }
 
 article .item .number {
-    background-color: rgb(223, 217, 217);
+    background-color: var(--item-number-bg);
 
     width: 60px;
     height: 60px;
@@ -177,6 +192,9 @@ article .item .number {
 
 article .item .number span{
     font-size: 20px;    
+    color: var(--item-number-text);
+    font-family: var(--font);
+
 }
 
 article .item .text {
@@ -186,7 +204,7 @@ article .item .text {
 
     font-size: 17px;
     font-weight: 400;
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--font);
     
     margin-left: 370px;
 }
